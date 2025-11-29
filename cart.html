@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-934808HTS8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-934808HTS8');
+</script>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PV6D69ZP');</script>
+<!-- End Google Tag Manager -->
+    <title>Your Cart</title>
+    <style>
+        body { font-family: Arial; background: #f4f4f4; padding: 20px; }
+        nav { background:#333; padding:15px; }
+        nav a { color:white; margin-right:15px; text-decoration:none; }
+        .cart-box { max-width:500px; margin:auto; background:#fff; padding:20px; border-radius:10px; }
+        img { width:100%; border-radius:10px; }
+        select { width:100%; padding:10px; margin:10px 0; }
+        .btn { background:#ff7a00; padding:10px; color:white; display:block; text-align:center; border-radius:5px; text-decoration:none; }
+    </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PV6D69ZP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<div class="cart-box">
+    <h2>Item Added to Cart</h2>
+    <img id="productImg">
+    <h3 id="productName"></h3>
+    <p>Price: ₹<span id="productPrice"></span></p>
+
+    <label>Quantity:</label>
+    <select id="qty" onchange="updateTotal()">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+
+    <p>Total: ₹<span id="total"></span></p>
+
+    <a class="btn" href="checkout.html">Proceed to Checkout</a>
+    <a class="btn" style="background:#444;" href="products.html">Back to Products</a>
+</div>
+
+<script>
+    const url = new URLSearchParams(window.location.search);
+    const name = url.get("name");
+    const price = url.get("price");
+    const img = url.get("img");
+
+    document.getElementById("productName").innerText = name;
+    document.getElementById("productPrice").innerText = price;
+    document.getElementById("productImg").src = img;
+
+    function updateTotal() {
+        const qty = document.getElementById("qty").value;
+        document.getElementById("total").innerText = price * qty;
+    }
+
+    updateTotal();
+</script>
+
+</body>
+</html>
